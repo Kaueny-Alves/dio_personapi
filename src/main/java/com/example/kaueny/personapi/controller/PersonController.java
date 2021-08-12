@@ -1,12 +1,14 @@
 package com.example.kaueny.personapi.controller;
 
 import com.example.kaueny.personapi.dto.request.PersonDTO;
+import com.example.kaueny.personapi.exception.PersonNotFoundException;
 import com.example.kaueny.personapi.service.PersonService;
 import com.example.kaueny.personapi.dto.response.MessageResponseDTO;
 import com.example.kaueny.personapi.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,5 +37,10 @@ public class PersonController {
   @GetMapping
   public List<PersonDTO> listAll(){
     return personService.listAll();
+  }
+
+  @GetMapping("/{id}")
+  public  PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
+    return personService.findById(id);
   }
 }
