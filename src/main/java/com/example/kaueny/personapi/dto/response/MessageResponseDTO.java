@@ -1,4 +1,4 @@
-package com.example.kaueny.personapi.dto;
+package com.example.kaueny.personapi.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

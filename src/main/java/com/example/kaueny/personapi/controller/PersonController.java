@@ -1,7 +1,8 @@
 package com.example.kaueny.personapi.controller;
 
+import com.example.kaueny.personapi.dto.request.PersonDTO;
 import com.example.kaueny.personapi.service.PersonService;
-import com.example.kaueny.personapi.dto.MessageResponseDTO;
+import com.example.kaueny.personapi.dto.response.MessageResponseDTO;
 import com.example.kaueny.personapi.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,9 @@ public class PersonController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public MessageResponseDTO createPerson(@RequestBody Person person){
+  public MessageResponseDTO createPerson(@RequestBody PersonDTO personDTO){
 
-    return personService.createPerson(person);
+
+    return personService.createPerson(personDTO);
   }
 }
